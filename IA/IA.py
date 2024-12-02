@@ -1,91 +1,96 @@
-##### IA ############
+import random
+
+#### IA ####
 def IA(plateau, symbole):
+    ################################### Priorité 1: Vérifie si l'IA peut gagner #########################
     for i in range(3):
-################################### Priorité 1: Vérifie si l'IA peut gagner #########################
-            if plateau[i][0] == plateau[i][1] == symbole and plateau[i][2] == " ":
-                plateau[i][2] = symbole
-                return
-            if plateau[i][1] == plateau[i][2] == symbole and plateau[i][0] == " ":
-                plateau[i][0] = symbole
-                return
-            if plateau[i][0] == plateau[i][2] == symbole and plateau[i][1] == " ":
-                plateau[i][1] = symbole
-                return
-            if plateau[0][i] == plateau[1][i] == symbole and plateau[2][i] == " ":
-                plateau[2][i] = symbole
-                return
-            if plateau[1][i] == plateau[2][i] == symbole and plateau[0][i] == " ":
-                plateau[0][i] = symbole
-                return
-            if plateau[0][i] == plateau[2][i] == symbole and plateau[1][i] == " ":
-                plateau[1][i] = symbole
-                return
-        
-            #Vérifie les diagonales
-            if plateau[0][0] == plateau[1][1] == symbole and plateau[2][2] == " ":
-                plateau[2][2] = symbole
-                return
-            if plateau[1][1] == plateau[2][2] == symbole and plateau[0][0] == " ":
-                plateau[0][0] = symbole
-                return
-            if plateau[0][2] == plateau[1][1] == symbole and plateau[2][0] == " ":
-                plateau[2][0] = symbole
-                return
-            if plateau[1][1] == plateau[2][0] == symbole and plateau[0][2] == " ":
-                plateau[0][2] = symbole
-                return
-            if plateau[0][0] == plateau[2][2] == symbole and plateau[1][1] == " ":
-                plateau[1][1] = symbole
-                return
-
-########################### Priorité 2: Bloquer le joueur ###################################
-    for i in range(3):
-        # Vérifie les lignes
-        if plateau[i][0] == plateau[i][1] == "X" and plateau[i][2] == " ":
-            plateau[i][2] = symbole
+        # Vérif des lignes
+        if plateau[i * 3] == plateau[i * 3 + 1] == symbole and plateau[i * 3 + 2] == " ":
+            plateau[i * 3 + 2] = symbole
             return
-        if plateau[i][1] == plateau[i][2] == "X" and plateau[i][0] == " ":
-            plateau[i][0] = symbole
+        if plateau[i * 3 + 1] == plateau[i * 3 + 2] == symbole and plateau[i * 3] == " ":
+            plateau[i * 3] = symbole
             return
-        if plateau[i][0] == plateau[i][2] == "X" and plateau[i][1] == " ":
-            plateau[i][1] = symbole
-            return
-        
-        # Vérifie les colonnes
-        if plateau[0][i] == plateau[1][i] == "X" and plateau[2][i] == " ":
-            plateau[2][i] = symbole
-            return
-        if plateau[1][i] == plateau[2][i] == "X" and plateau[0][i] == " ":
-            plateau[0][i] = symbole
-            return
-        if plateau[0][i] == plateau[2][i] == "X" and plateau[1][i] == " ":
-            plateau[1][i] = symbole
+        if plateau[i * 3] == plateau[i * 3 + 2] == symbole and plateau[i * 3 + 1] == " ":
+            plateau[i * 3 + 1] = symbole
             return
 
-    #Vérifie les diagonales 
-    if plateau[0][0] == plateau[1][1] == "X" and plateau[2][2] == " ":
-        plateau[2][2] = symbole
+    # Vérif des colonnes
+    for i in range(3):
+        if plateau[i] == plateau[i + 3] == symbole and plateau[i + 6] == " ":
+            plateau[i + 6] = symbole
+            return
+        if plateau[i + 3] == plateau[i + 6] == symbole and plateau[i] == " ":
+            plateau[i] = symbole
+            return
+        if plateau[i] == plateau[i + 6] == symbole and plateau[i + 3] == " ":
+            plateau[i + 3] = symbole
+            return
+
+    # Vérif des diagonales
+    if plateau[0] == plateau[4] == symbole and plateau[8] == " ":
+        plateau[8] = symbole
         return
-    if plateau[1][1] == plateau[2][2] == "X" and plateau[0][0] == " ":
-        plateau[0][0] = symbole
+    if plateau[4] == plateau[8] == symbole and plateau[0] == " ":
+        plateau[0] = symbole
         return
-    if plateau[0][2] == plateau[1][1] == "X" and plateau[2][0] == " ":
-        plateau[2][0] = symbole
+    if plateau[2] == plateau[4] == symbole and plateau[6] == " ":
+        plateau[6] = symbole
         return
-    if plateau[1][1] == plateau[2][0] == "X" and plateau[0][2] == " ":
-        plateau[0][2] = symbole
+    if plateau[4] == plateau[6] == symbole and plateau[2] == " ":
+        plateau[2] = symbole
         return
-    if plateau[0][0] == plateau[2][2] == "X" and plateau[1][1] == " ":
-        plateau[1][1] = symbole
+    if plateau[2] == plateau[6] == symbole and plateau[4] == " ":
+        plateau[4] = symbole
         return
+    
+    ########################### Priorité 2: Bloquer le joueur ###################################
+    for i in range(3):
+        # Vérif les lignes
+        if plateau[i * 3] == plateau[i * 3 + 1] == "X" and plateau[i * 3 + 2] == " ":
+            plateau[i * 3 + 2] = symbole
+            return
+        if plateau[i * 3] == plateau[i * 3 + 2] == "X" and plateau[i * 3 + 1] == " ":
+            plateau[i * 3 + 1] = symbole
+            return
+        if plateau[i * 3 + 1] == plateau[i * 3 + 2] == "X" and plateau[i * 3] == " ":
+            plateau[i * 3] = symbole
+            return
+        
+        # Vérif les colonnes
+        if plateau[i] == plateau[i + 3] == "X" and plateau[i + 6] == " ":
+            plateau[i + 6] = symbole
+            return
+        if plateau[i + 3] == plateau[i + 6] == "X" and plateau[i] == " ":
+            plateau[i] = symbole
+            return
+        if plateau[i] == plateau[i + 6] == "X" and plateau[i + 3] == " ":
+            plateau[i + 3] = symbole
+            return
+
+    #Vérif les diagonales 
+    if plateau[0] == plateau[4] == "X" and plateau[8] == " ":
+        plateau[8] = symbole
+        return
+    if plateau[4] == plateau[8] == "X" and plateau[0] == " ":
+        plateau[0] = symbole
+        return
+    if plateau[2] == plateau[4] == "X" and plateau[6] == " ":
+        plateau[6] = symbole
+        return
+    if plateau[4] == plateau[6] == "X" and plateau[2] == " ":
+        plateau[2] = symbole
+        return
+    if plateau[2] == plateau[6] == "X" and plateau[4] == " ":
+        plateau[4] = symbole
+        return
+
 
 ########################## Priorité 3: Joue dans une case libre #############################
-    if plateau[1][1] == " ":
-                plateau[1][1] = symbole
-                return
-    
-    for i in range(3):
-        for j in range(3):
-            if plateau[i][j] == " ":
-                plateau[i][j] = symbole
-                return
+    if plateau[4] == " ":
+        plateau[4] = symbole
+    else:
+        casesDispos = [i for i in range(9) if plateau[i] == " "]  # Trouve les indices des cases libres
+        if casesDispos:  # Vérifie s'il y a encore des cases libres
+            choix = random.choice(casesDispos)  # Choisit une case libre au hasard
+            plateau[choix] = symbole
