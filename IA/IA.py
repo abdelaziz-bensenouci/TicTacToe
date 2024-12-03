@@ -1,5 +1,23 @@
 import random
 
+"""
+Description :
+    L'IA suit une logique de priorités pour jouer son coup :
+    1. Vérifie si elle peut gagner à ce tour et joue pour gagner.
+    2. Bloque l'adversaire s'il est sur le point de gagner.
+    3. Si aucune des situations ci-dessus ne s'applique, joue dans une case libre (en commençant par le centre si disponible).
+
+Fonctions :
+    - `IA(plateau, symbole)` :
+        Gère le choix de la case où l'IA doit jouer en fonction des priorités définies.
+
+Paramètres :
+    - `plateau` : Liste de 9 éléments représentant l'état du plateau (cases libres ou occupées).
+    - `symbole` : Symbole de l'IA ("X" ou "O").
+
+Retour :
+    Aucune valeur retournée. Le plateau est modifié directement.
+"""
 #### IA ####
 def IA(plateau, symbole):
     ################################### Priorité 1: Vérifie si l'IA peut gagner #########################
