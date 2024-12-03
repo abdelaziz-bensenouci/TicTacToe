@@ -1,6 +1,3 @@
-
-# test_variable = "je suis un test"
-
 #### Détermine qui seront les joueurs #####
 
 def choixJoueurs():
