@@ -2,8 +2,40 @@ from plateau import plateau, affich_plateau, plateauComplet, verifieGagnant
 from joueurs.choix_joueurs import choixJoueurs, joueurs
 from IA.IA import IA
 
+"""
+Description :
+    Il s'agit de la dynamique du jeu Tic Tac Toe (Morpion).
+    Le jeu permet à deux joueurs (joueur/joueur ou joueur/IA) de s'affronter.
+    Le plateau est mis à jour après chaque tours et les résultats 
+    (victoire, défaite ou match nul) sont déterminés.
+"""
+
 ################################## Dynamique du jeux ###########################################
 def jouer():
+    """
+    Fonction principale du jeu.
+
+    Description :
+        Cette fonction gère la boucle principale du jeu :
+        - Affiche le plateau de jeu.
+        - Alterne entre les tours des joueurs (joueur ou IA).
+        - Vérifie après chaque tour si un joueur a gagné ou si le plateau est complet (match nul).
+        - Affiche le résultat (victoire ou match nul) et termine la partie.
+
+     Aucun paramètre requis.
+
+    Variables utilisées :
+        - `plateau` : Liste représentant l'état actuel du plateau (cases libres ou occupées).
+        - `joueurs` : Liste des noms des joueurs (ou "IA").
+        - `symbole` : "X" ou "O" attribué au joueur en cours.
+        - `case` : Case choisie par le joueur (1 à 9).
+
+    Erreurs :
+        - Vérifie que la case saisie est valide (entre 1 et 9).
+        - Empêche de jouer dans une case déjà occupée.
+
+    Termine la partie en affichant le résultat (victoire ou match nul).
+    """
     affich_plateau(plateau, initial=True)
     while True:
         for i in range(2):
@@ -33,5 +65,3 @@ def jouer():
             if plateauComplet(plateau):
                 print("Match nul!")
                 return
-            
-print("test")
