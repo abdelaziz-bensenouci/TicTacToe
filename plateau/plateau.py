@@ -1,3 +1,14 @@
+"""
+Gére l'affichage d'un plateau de morpion (tic-tac-toe).
+
+Fonctions :
+- `affich_plateau(plateau, initial=False)` : Affiche le plateau de jeu dans sa version initiale ou son état actuel.
+
+Classes / Objets :
+- `plateau` : Une liste représentant le plateau, contenant 9 cases initialisées par des espaces (" ").
+
+    """
+
 plateau = [" " for _ in range(9)]
 
 #### Affichage du plateau #####
