@@ -1,5 +1,5 @@
 from plateau import plateau, affich_plateau, plateauComplet, verifieGagnant
-from joueurs.choix_joueurs import choixJoueurs, joueurs
+from joueurs.choix_joueurs import choixJoueurs, liste_joueurs
 from IA.IA import IA
 
 """
@@ -34,12 +34,12 @@ def jouer():
     affich_plateau(plateau, initial=True)
     while True:
         for i in range(2):
-            if joueurs[i] == "IA":
+            if liste_joueurs[i] == "IA":
                 print("C'est au tour de l'IA")
                 symbole = "O" if i == 1 else "X"
                 IA(plateau, symbole) 
             else:
-                joueur = joueurs[i]
+                joueur = liste_joueurs[i]
                 print("C'est au tour de ", joueur.upper())
                 case = int(input("Dans quelle case (de 1 à 9) désirez-vous placer votre symbole ? : "))
                 while case < 1 or case > 9 or plateau[case - 1] != " ":
@@ -52,10 +52,10 @@ def jouer():
                 plateau[case - 1] = symbole
             affich_plateau(plateau)
             if verifieGagnant(plateau, symbole):
-                if joueurs[i] == "IA":
+                if liste_joueurs[i] == "IA":
                     print("Désolé, l'IA a gagné !")
                 else:
-                    print("Félicitations !", joueurs[i].upper(), "a gagné !")
+                    print("Félicitations !", liste_joueurs[i].upper(), "a gagné !")
                 return
             if plateauComplet(plateau):
                 print("Match nul!")

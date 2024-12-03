@@ -1,4 +1,5 @@
-from choix_joueurs import *
-from ..plateau import *
+from joueurs.choix_joueurs import *
+from plateau.plateau import *
 
-print(test_variable_1, plateau)
+
+# print(test_variable, plateau)
