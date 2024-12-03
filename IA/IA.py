@@ -90,7 +90,7 @@ def IA(plateau, symbole):
     if plateau[4] == " ":
         plateau[4] = symbole
     else:
-        casesDispos = [i for i in range(9) if plateau[i] == " "]  # Trouve les indices des cases libres
-        if casesDispos:  # Vérifie s'il y a encore des cases libres
-            choix = random.choice(casesDispos)  # Choisit une case libre au hasard
+        casesDispos = [i for i in range(9) if plateau[i] == " "]  
+        if casesDispos:
+            choix = random.choice(casesDispos)  
             plateau[choix] = symbole
