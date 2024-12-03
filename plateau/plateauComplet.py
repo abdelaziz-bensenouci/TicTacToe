@@ -1,6 +1,5 @@
 def plateauComplet(plateau):
-  for row in plateau:
-    if " " in row:
+  for ligne in plateau:
+    if " " in ligne:
       return False
   return True     
-  
