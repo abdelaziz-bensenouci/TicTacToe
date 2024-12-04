@@ -34,8 +34,6 @@ def jouer(choix_mode):
     """
     
     affich_plateau(plateau, initial=True)
-    
-    
     while True:
         for nom_joueur in range(2):
             if liste_joueurs[nom_joueur] == "IA":
@@ -45,14 +43,18 @@ def jouer(choix_mode):
             else:
                 joueur = liste_joueurs[nom_joueur]
                 print(f"C'est au tour de {joueur.upper()}")
-                case = int(input("Dans quelle case (de 1 à 9) désirez-vous placer votre symbole ? : "))
-                
-                while case < 1 or case > 9 or plateau[case - 1] != " ":
-                    if plateau[case - 1] != " ":
-                        print("Cette case est déjà occupée.")
-                    else:
-                        print("Saisir un nombre entre 1 et 9 correspondant à une case libre !")
-                    case = int(input("Dans quelle case (de 1 à 9) désirez-vous placer votre symbole ? : "))
+                while True:
+                    try:
+                        case = int(input("Dans quelle case (de 1 à 9) désirez-vous placer votre symbole ? : "))
+                        if 1 <= case <= 9:
+                            if plateau[case - 1] == " ":
+                                break
+                            else:
+                                print("Case déjà occupée, veuillez en choisir une autre.")
+                        else:
+                            print("Choix invalide. Le numéro doit être entre 1 et 9.")
+                    except ValueError:
+                        print("Veuillez entrer un nombre valide entre 1 et 9.")
                     
                 symbole = "X" if nom_joueur == 0 else "O"
                 plateau[case - 1] = symbole
