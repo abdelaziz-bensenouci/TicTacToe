@@ -3,4 +3,4 @@ from joueurs.choix_joueurs import *
 from IA.IA import *
 from jouer.jouer import *
 
-jouer()
+jouer(choix_mode)

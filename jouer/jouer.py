@@ -4,7 +4,7 @@ from IA.IA import IA
 
 
 ################################## Dynamique du jeux ###########################################
-def jouer():
+def jouer(choix_mode):
     
     """
     Description :
@@ -41,7 +41,7 @@ def jouer():
             if liste_joueurs[nom_joueur] == "IA":
                 print("C'est au tour de l'IA")
                 symbole = "O" if nom_joueur == 1 else "X"
-                IA(plateau, symbole) 
+                IA(plateau, symbole, choix_mode) 
             else:
                 joueur = liste_joueurs[nom_joueur]
                 print(f"C'est au tour de {joueur.upper()}")

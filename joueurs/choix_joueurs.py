@@ -3,10 +3,10 @@ import random
 
 def choix_joueurs():
     choix = 0
-
+    choix_mode = 0
     while choix not in [1,2]:
         
-        choix = int(input("Si vous désirez jouer contre l'IA, tapez 1, sinon tapez 2 pour jouer contre un autre joueur: "))
+        choix = int(input("Si vous désirez jouer contre l'IA tapez 1, sinon tapez 2 pour jouer contre un autre joueur: "))
         
         liste_symbole = ["X", "O"]
         random.shuffle(liste_symbole) 
@@ -17,6 +17,7 @@ def choix_joueurs():
             
         
         if choix == 1:
+            choix_mode = int(input("Quel niveau de jeu desirez-vous? Tapez 1 pour facile, 2 pour difficile:  "))
             joueur_prenom1 = input("Entrez le nom du joueur: ")
             liste_joueurs = [joueur_prenom1, "IA"]
             
@@ -34,6 +35,6 @@ def choix_joueurs():
                 
         else:
             print("Choix invalide. Veuillez entrer 1 ou 2.")
-    return liste_joueurs
+    return liste_joueurs, choix_mode
 
-liste_joueurs = choix_joueurs()
+liste_joueurs, choix_mode = choix_joueurs()
