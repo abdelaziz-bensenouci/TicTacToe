@@ -20,7 +20,7 @@ Retour :
 """
 
 #### Vérifie si il y a un gagnant #####
-def verifieGagnant(plateau, symbole):
+def verifie_gagnant(plateau, symbole):
     for i in range(3):
         if plateau[i * 3] == plateau[i * 3 + 1] == plateau[i * 3 + 2] == symbole:
             return True

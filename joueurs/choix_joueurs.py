@@ -1,7 +1,7 @@
 import random
 #### Détermine qui seront les joueurs #####
 
-def choixJoueurs():
+def choix_joueurs():
     choix = 0
 
     while choix not in [1,2]:
@@ -31,4 +31,4 @@ def choixJoueurs():
             print("Choix invalide. Veuillez entrer 1 ou 2.")
     return liste_joueurs
 
-liste_joueurs = choixJoueurs()
+liste_joueurs = choix_joueurs()

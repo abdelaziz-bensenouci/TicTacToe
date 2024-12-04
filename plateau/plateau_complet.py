@@ -15,7 +15,7 @@ Retour :
     - `False` : S'il reste au moins une case libre.
 """
 
-def plateauComplet(plateau):
+def plateau_complet(plateau):
   for ligne in plateau:
     if " " in ligne:
       return False

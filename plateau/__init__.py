@@ -1,3 +1,3 @@
 from .plateau import *
-from .plateauComplet import *
-from .verifeGagnant import *
+from .plateau_complet import *
+from .verife_gagnant import *

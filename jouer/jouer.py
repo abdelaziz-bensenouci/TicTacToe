@@ -1,5 +1,5 @@
-from plateau import plateau, affich_plateau, plateauComplet, verifieGagnant
-from joueurs.choix_joueurs import choixJoueurs, liste_joueurs
+from plateau import plateau, affich_plateau, plateau_complet, verifie_gagnant
+from joueurs.choix_joueurs import choix_joueurs, liste_joueurs
 from IA.IA import IA
 
 """
@@ -51,12 +51,12 @@ def jouer():
                 symbole = "X" if i == 0 else "O"
                 plateau[case - 1] = symbole
             affich_plateau(plateau)
-            if verifieGagnant(plateau, symbole):
+            if verifie_gagnant(plateau, symbole):
                 if liste_joueurs[i] == "IA":
                     print("Désolé, l'IA a gagné !")
                 else:
                     print("Félicitations !", liste_joueurs[i].upper(), "a gagné !")
                 return
-            if plateauComplet(plateau):
+            if plateau_complet(plateau):
                 print("Match nul!")
                 return
