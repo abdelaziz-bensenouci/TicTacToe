@@ -10,6 +10,11 @@ def choix_joueurs():
         
         liste_symbole = ["X", "O"]
         random.shuffle(liste_symbole) 
+        # if liste_symbole == "X":
+        #     symbole1 = "X"
+        # else:
+        #     symbole2 = "O"
+            
         
         if choix == 1:
             joueur_prenom1 = input("Entrez le nom du joueur: ")
