@@ -22,7 +22,7 @@ Ce projet est un jeu de Tic-Tac-Toe (Morpion) développé en Python. Il permet �
     ```
 3.  **Lancer le jeu :**
     ```bash
-    python main.py
+    python -m main
     ```
 4.  **Suivre les instructions :** Le jeu vous demandera si vous voulez jouer contre l'IA ou un autre joueur, puis vous demandera de saisir vos coups à tour de rôle.
 
@@ -32,7 +32,7 @@ Le code est structuré en plusieurs fonctions :
 
 *   `choix_joueurs()`: Demande aux joueurs d'entrer leurs noms et détermine qui joue avec quel symbole (X ou O). Gère aussi le choix du mode de jeu (contre l'IA ou un autre joueur).
 *   `affich_plateau(plateau, initial)`: Affiche le plateau de jeu. Si `initial` est vrai, affiche le plateau avec les numéros des cases pour aider les joueurs à choisir leur coup.
-*   `verifier_gagnant(plateau, symbole)`: Vérifie si le joueur avec le `symbole` donné a gagné.
+*   `verifie_gagnant(plateau, symbole)`: Vérifie si le joueur avec le `symbole` donné a gagné.
 *   `plateau_complet(plateau)`: Vérifie si le plateau est plein (match nul).
 *   `IA(plateau, symbole)`: Détermine le coup de l'IA. L'IA essaie d'abord de gagner, puis d'empêcher le joueur de gagner, et enfin joue un coup aléatoire si aucune des deux premières options n'est possible.
 *   `jouer()`: Fonction principale qui gère le déroulement du jeu.
@@ -41,7 +41,7 @@ Le code est structuré en plusieurs fonctions :
 
 L'IA utilise une stratégie à trois niveaux :
 
-1.  **Priorité 1 : Gagner.** Si l'IA peut gagner en un coup, elle le fait.
+1.  **Priorité 1 : Gagner.** Vérifie si elle peut gagner à ce tour et joue pour gagner.
 2.  **Priorité 2 : Bloquer.** Si le joueur peut gagner au prochain coup, l'IA le bloque.
 3.  **Priorité 3 : Jouer un coup aléatoire.** Si aucune des deux premières conditions n'est remplie, l'IA joue un coup aléatoire parmi les cases disponibles. L'IA va jouer en priorité au centre du plateau si disponible.
 

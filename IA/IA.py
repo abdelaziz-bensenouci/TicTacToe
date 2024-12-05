@@ -36,17 +36,17 @@ def IA(plateau, symbole, choix_mode):
     
     if choix_mode == 1:
         ########### Priorité 1: Bloquer le joueur #####################
-        for i in range(9):
-            if plateau[i] == " ":
-                plateau[i] = adversaire
+        for case in range(9):
+            if plateau[case] == " ":
+                plateau[case] = adversaire
                 if verifie_gagnant(plateau, adversaire):
-                    plateau[i] = symbole  
+                    plateau[case] = symbole  
                     return
-                plateau[i] = " "  
+                plateau[case] = " "  
             
             
     ################## Priorité 2: Joue dans une case libre ####################
-        cases_dispos = [i for i in range(9) if plateau[i] == " "]  
+        cases_dispos = [case for case in range(9) if plateau[case] == " "]  
         if cases_dispos:
             choix = random.choice(cases_dispos)  
             plateau[choix] = symbole
@@ -58,27 +58,27 @@ def IA(plateau, symbole, choix_mode):
 
     if choix_mode == 2: 
     ############ Priorité 1: Vérifie si l'IA peut gagner ###############
-        for i in range(9):
-            if plateau[i] == " ":
-                plateau[i] = symbole
+        for case in range(9):
+            if plateau[case] == " ":
+                plateau[case] = symbole
                 if verifie_gagnant(plateau, symbole):
                     return  
-                plateau[i] = " "  
+                plateau[case] = " "  
         
         ############## Priorité 2: Bloquer le joueur ####################
-        for i in range(9):
-            if plateau[i] == " ":
-                plateau[i] = adversaire
+        for case in range(9):
+            if plateau[case] == " ":
+                plateau[case] = adversaire
                 if verifie_gagnant(plateau, adversaire):
-                    plateau[i] = symbole 
+                    plateau[case] = symbole 
                     return
-                plateau[i] = " "  
+                plateau[case] = " "  
         
         ############### Priorité 3: Joue dans une case libre ####################
         if plateau[4] == " ":
             plateau[4] = symbole
         else:
-            cases_dispos = [i for i in range(9) if plateau[i] == " "]  
+            cases_dispos = [case for case in range(9) if plateau[case] == " "]  
             if cases_dispos:
                 choix = random.choice(cases_dispos)  
                 plateau[choix] = symbole
