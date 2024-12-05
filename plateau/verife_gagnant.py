@@ -25,8 +25,8 @@ def verifie_gagnant(plateau, symbole):
     for index_case in range(3):
         if plateau[index_case * 3] == plateau[index_case * 3 + 1] == plateau[index_case * 3 + 2] == symbole:
             return True
-    for i in range(3):
-        if plateau[i] == plateau[i + 3] == plateau[i + 6] == symbole:
+    for index_case in range(3):
+        if plateau[index_case] == plateau[index_case + 3] == plateau[index_case + 6] == symbole:
             return True
     if plateau[0] == plateau[4] == plateau[8] == symbole:
         return True
