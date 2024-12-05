@@ -1,7 +1,7 @@
 
 #### Création du plateau #####
 
-plateau = [" " for _ in range(9)]
+plateau = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 #### Affichage du plateau #####
 def affich_plateau(plateau, initial=False):
@@ -34,10 +34,10 @@ def affich_plateau(plateau, initial=False):
         print("---------")
         print("7 | 8 | 9")
     else:
-        for ligne in range(3):
-            espace_case = ligne * 3
-            print(plateau[espace_case], "|", plateau[espace_case + 1], "|", plateau[espace_case + 2])
-            if ligne < 2:
-                print("---------")
+        print(plateau[0],  "|", plateau[1], "|", plateau[2])
+        print("---------")
+        print(plateau[3],  "|", plateau[4], "|", plateau[5])
+        print("---------")
+        print(plateau[6],  "|", plateau[7], "|", plateau[8])
 
 
